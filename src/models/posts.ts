@@ -1,23 +1,36 @@
-import mongoose from 'mongoose';
+import { Schema, Types, model } from 'mongoose';
+import type { Model, HydratedDocument, QueryWithHelpers } from 'mongoose';
 
-export interface Post {
+export type Post = {
   title: string;
-  content: string;
-  ownerID: string;
-}
+  content?: string;
+  media?: string;
+  userID: Types.ObjectId;
+  _id: Types.ObjectId;
+};
 
-const postSchema = new mongoose.Schema<Post>({
-  title: {
-    type: String,
-    required: true,
-  },
-  content: String,
-  ownerID: {
-    type: String,
-    required: true,
-  },
+type PostQueryHelpers = {
+  byUserID(
+    userID: Post['userID'],
+  ): QueryWithHelpers<HydratedDocument<Post>[], HydratedDocument<Post>, PostQueryHelpers>;
+};
+
+type PostModel = Model<Post, PostQueryHelpers>;
+
+// eslint-disable-next-line @typescript-eslint/no-empty-object-type
+const postSchema = new Schema<Post, PostModel, {}, PostQueryHelpers>({
+  title: { type: String, required: true },
+  content: { type: String },
+  media: { type: String },
+  userID: { type: Schema.ObjectId, ref: 'users' },
 });
 
-const postModel = mongoose.model<Post>('Posts', postSchema);
+postSchema.query.byUserID = function byUserID(
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  this: QueryWithHelpers<any, HydratedDocument<Post>, PostQueryHelpers>,
+  userID: Post['userID'],
+) {
+  return this.find({ userID });
+};
 
-export default postModel;
+export default model<Post, PostModel>('posts', postSchema);

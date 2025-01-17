@@ -1,0 +1,1 @@
+export { DeleteMany } from './mongooseUtils';

@@ -1,20 +1,25 @@
 {
-  "extends": "@tsconfig/node-lts/tsconfig.json",
   "compilerOptions": {
-    "verbatimModuleSyntax": true,
-		"moduleDetection": "force",
-		"resolveJsonModule": true,
-		"allowJs": true,
-		"esModuleInterop": true,
-		"isolatedModules": true,
+    "module": "commonjs",
+    "esModuleInterop": true,
+    "target": "es6",
+    "noImplicitAny": true,
+    "moduleResolution": "node",
+    "sourceMap": true,
     "outDir": "dist",
-    "baseUrl": "./",
-    "paths": { "#root/*": ["./src/*"] },
-    "plugins": [{ "transform": "typescript-transform-paths" }]
+    "baseUrl": ".",
+    "paths": {
+        "*": [
+            "node_modules/*"
+        ]
+    },
+    "strict": true,
+    "resolveJsonModule": true,
+    "lib": ["es2021"]
   },
-  "include": ["src"],
-  "exclude": ["node_modules"],
-  "ts-node": {
-    "require": ["tsconfig-paths/register"]
-  }
+  "include": [
+      "src/**/*",
+      "__tests__/**/*"
+  ],
+  "exclude": ["node_modules", "dist"]
 }

@@ -4,9 +4,6 @@ dist/
 # Ignore node modules
 node_modules/
 
-# Ignore specific configuration files
-*.config.js
-
 # Ignore environment variables files
 .env
 .env.*

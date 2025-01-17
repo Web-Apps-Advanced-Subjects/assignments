@@ -1,25 +1,7 @@
 {
-  "compilerOptions": {
-    "module": "commonjs",
-    "esModuleInterop": true,
-    "target": "es6",
-    "noImplicitAny": true,
-    "moduleResolution": "node",
-    "sourceMap": true,
-    "outDir": "dist",
-    "baseUrl": ".",
-    "paths": {
-        "*": [
-            "node_modules/*"
-        ]
-    },
-    "strict": true,
-    "resolveJsonModule": true,
-    "lib": ["es2021"]
-  },
-  "include": [
-      "src/**/*",
-      "__tests__/**/*"
-  ],
-  "exclude": ["node_modules", "dist"]
+  "files": [],
+  "references": [
+    { "path": "./tsconfig.app.json" },
+    { "path": "./tsconfig.node.json" }
+  ]
 }

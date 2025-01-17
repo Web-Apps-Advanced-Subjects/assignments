@@ -1,0 +1,20 @@
+{
+  "extends": "@tsconfig/node-lts/tsconfig.json",
+  "compilerOptions": {
+    "verbatimModuleSyntax": true,
+		"moduleDetection": "force",
+		"resolveJsonModule": true,
+		"allowJs": true,
+		"esModuleInterop": true,
+		"isolatedModules": true,
+    "outDir": "dist",
+    "baseUrl": "./",
+    "paths": { "#root/*": ["./src/*"] },
+    "plugins": [{ "transform": "typescript-transform-paths" }]
+  },
+  "include": ["src"],
+  "exclude": ["node_modules"],
+  "ts-node": {
+    "require": ["tsconfig-paths/register"]
+  }
+}

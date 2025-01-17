@@ -1,0 +1,67 @@
+###
+
+POST http://localhost:3000/posts
+Content-Type: application/json
+
+{
+    "title": "Hello2",
+    "ownerID": "Kevin",
+    "content": "Hello World..."
+}
+
+###
+
+GET http://localhost:3000/posts
+
+###
+
+GET http://localhost:3000/posts/67533116186f88c460c2a7c7
+
+###
+
+GET http://localhost:3000/posts?ownerID=Kevin
+
+###
+
+PUT http://localhost:3000/posts/67533116186f88c460c2a7c7
+Content-Type: application/json
+
+{
+    "title": "Changed",
+    "ownerID": "Kevin2",
+    "content": "Hello World..."
+}
+
+###
+
+POST http://localhost:3000/comments
+Content-Type: application/json
+
+{
+    "comment": "Nice",
+    "ownerID": "Kevin3",
+    "postID": "67533116186f88c460c2a7c7"
+}
+
+###
+
+GET http://localhost:3000/comments
+
+###
+
+GET http://localhost:3000/comments/675334983db8138c200f9e17
+
+###
+
+GET http://localhost:3000/comments?ownerID=Kevin3
+
+###
+
+PUT http://localhost:3000/comments/675334983db8138c200f9e17
+Content-Type: application/json
+
+{
+    "comment": "Changed"
+}
+
+###

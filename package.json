@@ -1,0 +1,48 @@
+{
+  "name": "assignment-1",
+  "version": "1.0.0",
+  "description": "",
+  "license": "MIT",
+  "author": "Idan Bridza <bidan2014@gmail.com>",
+  "main": "app.ts",
+  "repository": "github:Web-Apps-Advanced-Subjects/assignment-1",
+  "type": "module",
+  "imports": {
+    "#root/*": "./*"
+  },
+  "scripts": {
+    "dev": "nodemon ./src/app.ts",
+    "start": "tsx src/app.ts",
+    "test": "jest --detectOpenHandles --forceExit --coverage",
+    "lint": "eslint .",
+    "p": "prettier ."
+  },
+  "dependencies": {
+    "body-parser": "^1.20.3",
+    "dotenv": "^16.4.7",
+    "express": "^4.21.2",
+    "mongoose": "^8.8.4"
+  },
+  "devDependencies": {
+    "@eslint/js": "^9.16.0",
+    "@tsconfig/node-lts": "^22.0.1",
+    "@types/body-parser": "^1.19.5",
+    "@types/express": "^5.0.0",
+    "@types/node": "^22.10.1",
+    "@typescript-eslint/eslint-plugin": "^8.17.0",
+    "@typescript-eslint/parser": "^8.17.0",
+    "eslint": "^9.16.0",
+    "eslint-config-prettier": "^9.1.0",
+    "globals": "^15.13.0",
+    "jiti": "^2.4.1",
+    "nodemon": "^3.1.7",
+    "prettier": "^3.4.2",
+    "ts-node": "^10.9.2",
+    "ts-patch": "^3.3.0",
+    "tsconfig-paths": "^4.2.0",
+    "tsx": "^4.19.2",
+    "typescript": "^5.7.2",
+    "typescript-eslint": "^8.17.0",
+    "typescript-transform-paths": "^3.5.2"
+  }
+}
